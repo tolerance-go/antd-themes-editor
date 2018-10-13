@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import ReactDOM from "react-dom";
 import {
   Drawer,
   Form,
@@ -88,7 +89,7 @@ class Setting extends PureComponent {
     };
     const { modifiedThemeVars, themeVars } = this.props;
     const { getFieldDecorator } = this.props.form;
-    const { loading } = this.state;
+    const { loading, visible } = this.state;
 
     const adjustableThemeVars = {
       ...themeVars,
@@ -99,12 +100,18 @@ class Setting extends PureComponent {
 
     return (
       <div>
-        <Affix
-          offsetTop={300}
-          style={{ position: "absolute", top: 300, right: 0, zIndex: 9999 }}
-        >
-          <Button type="primary" icon="tool" onClick={this.showDrawer} />
-        </Affix>
+        <Button
+          style={{
+            position: "fixed",
+            top: 300,
+            right: 0,
+            zIndex: 9999,
+            visibility: !visible ? "visible" : "hidden"
+          }}
+          type="primary"
+          icon="tool"
+          onClick={this.showDrawer}
+        />
 
         <Drawer
           width={920}
