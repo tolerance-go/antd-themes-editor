@@ -12,8 +12,9 @@ export default {
     ]
   ],
   base: "antd-themes-editor/",
+  publicPath: "/antd-themes-editor/",
   outputPath: "docs",
   exportStatic: true,
   disableCSSModules: true,
-  cssModulesWithAffix: true
+  cssModulesWithAffix: true,
 };
