@@ -94,6 +94,9 @@ class Setting extends PureComponent {
       ...themeVars,
       ...modifiedThemeVars
     };
+
+    const actionBarHeight = 50;
+
     return (
       <div>
         <Affix
@@ -110,39 +113,51 @@ class Setting extends PureComponent {
           maskClosable={false}
           visible={this.state.visible}
         >
-          <Form id="setting" layout="horizontal" hideRequiredMark>
-            {lodash.chunk(Object.keys(adjustableThemeVars), 3).map((chunks, index) => {
-              return (
-                <Row key={index} gutter={16}>
-                  {chunks.map((varName, iindex) => {
-                    const value = adjustableThemeVars[varName];
-                    return (
-                      <Col key={iindex} span={24 / 3}>
-                        <Form.Item {...formItemLayout} label={varName}>
-                          {getFieldDecorator(varName, {
-                            initialValue: value
-                          })(
-                            value.endsWith("px") ? <CompleteInput /> : <Color />
-                          )}
-                        </Form.Item>
-                      </Col>
-                    );
-                  })}
-                </Row>
-              );
-            })}
-          </Form>
+          <div style={{ marginBottom: actionBarHeight }}>
+            <Form id="setting" layout="horizontal" hideRequiredMark>
+              {lodash
+                .chunk(Object.keys(adjustableThemeVars), 3)
+                .map((chunks, index) => {
+                  return (
+                    <Row key={index} gutter={16}>
+                      {chunks.map((varName, iindex) => {
+                        const value = adjustableThemeVars[varName];
+                        return (
+                          <Col key={iindex} span={24 / 3}>
+                            <Form.Item {...formItemLayout} label={varName}>
+                              {getFieldDecorator(varName, {
+                                initialValue: value
+                              })(
+                                value.endsWith("px") ? (
+                                  <CompleteInput />
+                                ) : (
+                                  <Color />
+                                )
+                              )}
+                            </Form.Item>
+                          </Col>
+                        );
+                      })}
+                    </Row>
+                  );
+                })}
+            </Form>
+          </div>
+
           <div
             style={{
               position: "absolute",
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
               bottom: 0,
               width: "100%",
               borderTop: "1px solid #e8e8e8",
-              padding: "10px 16px",
-              textAlign: "right",
+              padding: "0px 16px",
               left: 0,
               background: "#fff",
-              borderRadius: "0 0 4px 4px"
+              borderRadius: "0 0 4px 4px",
+              height: actionBarHeight
             }}
           >
             <Button
