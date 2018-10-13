@@ -11,10 +11,10 @@ export default {
       }
     ]
   ],
-  base: "antd-themes-editor/",
-  publicPath: "/antd-themes-editor/",
+  base: "/antd-themes-editor/",
   outputPath: "docs",
+  publicPath: "./",
   exportStatic: true,
   disableCSSModules: true,
-  cssModulesWithAffix: true,
+  cssModulesWithAffix: true
 };
