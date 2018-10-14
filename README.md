@@ -26,7 +26,7 @@ PS: 浏览器环境同步编译 less 文件，所以加载会有些慢
   <script>
       window.less = {
           async: false,
-          env: 'development',
+          env: 'production',
           javascriptEnabled: true,
       };
   </script>
