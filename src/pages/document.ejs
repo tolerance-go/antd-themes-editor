@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>antd-themes-editor</title>
-    <link rel="stylesheet/less" type="text/css" href="<%= process.env.PUBLIC_PATH %>hotTheme/index.less" />
     <style>
         .loading-wrap {
             width: 100%;
@@ -16,20 +15,21 @@
             align-items: center;
         }
     </style>
+    <link rel="stylesheet/less" type="text/css" href="<%= context.config.publicPath %>hotTheme/index.less" />
     <script>
         window.less = {
             async: false,
-            env: 'development',
+            env: 'production',
             javascriptEnabled: true,
         };
     </script>
-    <script src="<%= process.env.PUBLIC_PATH %>less.min.js"></script>
+    <script src="<%= context.config.publicPath %>less.min.js"></script>
 </head>
 
 <body>
     <div id="root">
         <div class="loading-wrap">
-            <img src="<%= process.env.PUBLIC_PATH %>loading-cylon.svg" alt="Loading icon" />
+            <img src="<%= context.config.publicPath %>loading-cylon.svg" alt="Loading icon" />
         </div>
     </div>
 </body>

@@ -11,7 +11,9 @@ export default {
       }
     ]
   ],
-  base: "/antd-themes-editor/",
+  // https://github.com/umijs/umi/issues/1240 
+  // use `.umirc.build.js` to fix it for now
+  // base: "/antd-themes-editor/",
   outputPath: "docs",
   publicPath: "./",
   exportStatic: true,
